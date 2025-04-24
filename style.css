@@ -21,7 +21,7 @@ body {
 
 .description {
   max-width: 600px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1rem;
   font-size: 1.1rem;
   line-height: 1.8;
   color: #ccc;
@@ -39,28 +39,20 @@ body {
 }
 
 .typewriter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.8rem;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 2rem auto;
+  letter-spacing: .1em;
   font-size: 2rem;
   color: #32cd32;
-  margin-top: 2rem;
-  text-shadow: 0 0 10px #32cd32, 0 0 20px #32cd32;
-}
-
-.typewriter i {
-  animation: pulse 2s infinite;
-}
-
-.before-channels {
-  margin-top: 2.5rem;
-  font-size: 1.2rem;
-  color: #ccc;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .channels {
-  margin-top: 2rem;
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -73,19 +65,60 @@ body {
   border-radius: 1.5rem;
   transform: translateY(30px);
   opacity: 0;
-  transition: all 0.6s ease-in-out, transform 0.3s;
+  transition: all 0.6s ease-in-out, transform 0.3s ease;
 }
 
 .channel:hover {
-  transform: scale(1.05);
-  opacity: 1;
+  transform: scale(1.03);
+  opacity: 1 !important;
+}
+
+.channel a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #32cd32;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .glow {
   box-shadow: 0 0 15px #32cd32, 0 0 25px #32cd32;
 }
 
-.channel a {
+.channel-intro {
+  margin-top: 4rem;
+  color: #ccc;
+}
+
+.about {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.bots {
+  margin-top: 3rem;
+}
+
+.bots-intro {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.bot {
+  background-color: #1c1c1c;
+  border: 1px solid #32cd32;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 15px #32cd32, 0 0 25px #32cd32;
+  transition: transform 0.3s ease;
+}
+
+.bot:hover {
+  transform: scale(1.05);
+}
+
+.bot a {
   display: inline-block;
   margin-top: 1rem;
   color: #32cd32;
@@ -116,7 +149,6 @@ footer {
   transform: scale(1.3);
 }
 
-/* Animations */
 @keyframes fadeIn {
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -134,10 +166,15 @@ footer {
 @media (max-width: 768px) {
   .typewriter {
     font-size: 1.5rem;
-    flex-direction: column;
   }
 
   .channel {
     padding: 1.2rem;
   }
+}
+
+footer .copyright {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #888;
 }
