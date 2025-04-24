@@ -1,14 +1,16 @@
-// ظهور القنوات عند التمرير
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, {
-  threshold: 0.2
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".channel");
 
-document.querySelectorAll('.fade-in').forEach(el => {
-  observer.observe(el);
+  const revealOnScroll = () => {
+    sections.forEach((el) => {
+      const pos = el.getBoundingClientRect().top;
+      if (pos < window.innerHeight - 100) {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      }
+    });
+  };
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
 });
