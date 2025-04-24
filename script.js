@@ -1,10 +1,14 @@
-// إظهار الكروت عند النزول
-window.addEventListener('scroll', () => {
-  const cards = document.querySelectorAll('.channel-card');
-  cards.forEach(card => {
-    const rect = card.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      card.classList.add('revealed');
+// ظهور القنوات عند التمرير
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
     }
   });
+}, {
+  threshold: 0.2
+});
+
+document.querySelectorAll('.fade-in').forEach(el => {
+  observer.observe(el);
 });
