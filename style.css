@@ -6,10 +6,20 @@ body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .container {
   padding: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .hero .brand {
@@ -21,7 +31,7 @@ body {
 
 .description {
   max-width: 600px;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.5rem;
   font-size: 1.1rem;
   line-height: 1.8;
   color: #ccc;
@@ -38,17 +48,39 @@ body {
   animation: pulse 2s infinite;
 }
 
+.brain-icon {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.brain-icon i {
+  color: #32cd32;
+  text-shadow: 0 0 10px #32cd32;
+  animation: pulse 2s infinite;
+}
+
 .typewriter {
   overflow: hidden;
+  border-right: .15em solid #32cd32;
   white-space: nowrap;
-  margin: 2rem auto;
+  margin: 1rem auto 2rem;
   letter-spacing: .1em;
   font-size: 2rem;
   color: #32cd32;
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  align-items: center;
+  position: relative;
+}
+
+.glitch {
+  animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 2px red; }
+  20% { text-shadow: -2px -2px blue; }
+  40% { text-shadow: 2px -2px lime; }
+  60% { text-shadow: -2px 2px cyan; }
+  80% { text-shadow: 2px 0 red; }
+  100% { text-shadow: 0 0 white; }
 }
 
 .channels {
@@ -65,12 +97,15 @@ body {
   border-radius: 1.5rem;
   transform: translateY(30px);
   opacity: 0;
-  transition: all 0.6s ease-in-out, transform 0.3s ease;
+  transition: all 0.6s ease-in-out;
+}
+
+.glow {
+  box-shadow: 0 0 15px #32cd32, 0 0 25px #32cd32;
 }
 
 .channel:hover {
-  transform: scale(1.03);
-  opacity: 1 !important;
+  transform: scale(1.05);
 }
 
 .channel a {
@@ -81,49 +116,10 @@ body {
   text-decoration: none;
 }
 
-.glow {
-  box-shadow: 0 0 15px #32cd32, 0 0 25px #32cd32;
-}
-
-.channel-intro {
+.section-intro {
   margin-top: 4rem;
-  color: #ccc;
-}
-
-.about {
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-}
-
-.bots {
-  margin-top: 3rem;
-}
-
-.bots-intro {
-  color: #ccc;
-  margin-bottom: 1.5rem;
-}
-
-.bot {
-  background-color: #1c1c1c;
-  border: 1px solid #32cd32;
-  padding: 1.5rem;
-  border-radius: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 0 15px #32cd32, 0 0 25px #32cd32;
-  transition: transform 0.3s ease;
-}
-
-.bot:hover {
-  transform: scale(1.05);
-}
-
-.bot a {
-  display: inline-block;
-  margin-top: 1rem;
-  color: #32cd32;
-  font-weight: bold;
-  text-decoration: none;
+  font-size: 1.2rem;
+  color: #aaffaa;
 }
 
 footer {
@@ -149,6 +145,22 @@ footer {
   transform: scale(1.3);
 }
 
+.copyright {
+  margin-top: 1rem;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.whoami {
+  margin-top: 2rem;
+  background: #161616;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #32cd32;
+  box-shadow: 0 0 10px #32cd32;
+  animation: fadeIn 2s ease-in-out;
+}
+
 @keyframes fadeIn {
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -171,10 +183,4 @@ footer {
   .channel {
     padding: 1.2rem;
   }
-}
-
-footer .copyright {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #888;
 }
