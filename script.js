@@ -17,3 +17,26 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", revealOnScroll);
   revealOnScroll();
 });
+
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 50 },
+    color: { value: "#32cd32" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#32cd32",
+      opacity: 0.4,
+      width: 1,
+    },
+    move: { enable: true, speed: 2 },
+  },
+  interactivity: {
+    events: { onhover: { enable: true, mode: "repulse" } },
+    modes: { repulse: { distance: 100 } },
+  },
+  retina_detect: true,
+});
